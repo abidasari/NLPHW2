@@ -108,39 +108,39 @@ def classify4way(filepath):
                     score[eachclass] += math.log(switch, 10)#math.log(condprob_tru[eachtoken])
     return score
 
-#
-# def classify2way(filepath):
-#     tokens_in_file = processfile(filename)
-#     filedic = {}
-#     filedic = addtodict(filedic, tokens_in_file)
-#     for eachclass in ["positive_polarity", "negative_polarity"]:
-#         score[eachclass] = math.log(priors[eachclass], 10)
-#         for eachtoken in filedic:
-#             if eachclass == classes[0]:
-#                 switch = dealwithnoword(condprob_pos_pol, eachtoken)
-#                 if switch == 0:
-#                     continue
-#                 else:
-#                     score[eachclass] += math.log(switch, 10)#math.log(condprob_pos_pol[eachtoken])
-#             elif eachclass == classes[1]:
-#                 switch = dealwithnoword(condprob_neg_pol, eachtoken)
-#                 if switch == 0:
-#                     continue
-#                 else:
-#                     score[eachclass] += math.log(switch, 10)#math.log(condprob_neg_pol[eachtoken])
-#             elif eachclass == classes[2]:
-#                 switch = dealwithnoword(condprob_dec, eachtoken)
-#                 if switch == 0:
-#                     continue
-#                 else:
-#                     score[eachclass] += math.log(switch, 10)#math.log(condprob_dec[eachtoken])
-#             elif eachclass == classes[3]:
-#                 switch = dealwithnoword(condprob_tru, eachtoken)
-#                 if switch == 0:
-#                     continue
-#                 else:
-#                     score[eachclass] += math.log(switch, 10)#math.log(condprob_tru[eachtoken])
-#     return score
+
+def classify2way(filepath):
+    tokens_in_file = processfile(filename)
+    filedic = {}
+    filedic = addtodict(filedic, tokens_in_file)
+    for eachclass in ["positive_polarity", "negative_polarity"]:
+        score[eachclass] = math.log(priors[eachclass], 10)
+        for eachtoken in filedic:
+            if eachclass == classes[0]:
+                switch = dealwithnoword(condprob_pos_pol, eachtoken)
+                if switch == 0:
+                    continue
+                else:
+                    score[eachclass] += math.log(switch, 10)#math.log(condprob_pos_pol[eachtoken])
+            elif eachclass == classes[1]:
+                switch = dealwithnoword(condprob_neg_pol, eachtoken)
+                if switch == 0:
+                    continue
+                else:
+                    score[eachclass] += math.log(switch, 10)#math.log(condprob_neg_pol[eachtoken])
+            elif eachclass == classes[2]:
+                switch = dealwithnoword(condprob_dec, eachtoken)
+                if switch == 0:
+                    continue
+                else:
+                    score[eachclass] += math.log(switch, 10)#math.log(condprob_dec[eachtoken])
+            elif eachclass == classes[3]:
+                switch = dealwithnoword(condprob_tru, eachtoken)
+                if switch == 0:
+                    continue
+                else:
+                    score[eachclass] += math.log(switch, 10)#math.log(condprob_tru[eachtoken])
+    return score
 
 
 
@@ -154,8 +154,7 @@ for root, dirnames, filenames in os.walk(r"."+basepath):
         # _2way = classify2way(filename)
         output = []
         if _4way["deceptive"] > _4way["truthful"]:
-            class1 = "decept" \
-                     "ive"
+            class1 = "deceptive"
         else:
             class1 = "truthful"
         if _4way["positive_polarity"] > _4way["negative_polarity"]:

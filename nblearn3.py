@@ -63,10 +63,10 @@ print(str(sys.argv[0]) , "\n", str(sys.argv[1]), "\n", str(sys.argv[2]))
 # neg_pol_truthful = r"."+basepath+"/negative_polarity/truthful_from_Web/"
 
 
-pos_pol = r"."+basepath+"/positive_polarity/deceptive_from_MTurk/"
-pos_pol_truthful = r"."+basepath+"/positive_polarity/truthful_from_TripAdvisor/"
-neg_pol = r"."+basepath+"/negative_polarity/deceptive_from_MTurk/"
-neg_pol_truthful = r"."+basepath+"/negative_polarity/truthful_from_Web/"
+pos_pol = r"."+basepath+"positive_polarity/deceptive_from_MTurk/"
+pos_pol_truthful = r"."+basepath+"positive_polarity/truthful_from_TripAdvisor/"
+neg_pol = r"."+basepath+"negative_polarity/deceptive_from_MTurk/"
+neg_pol_truthful = r"."+basepath+"negative_polarity/truthful_from_Web/"
 
 
 path_directory = { classes[0]: [pos_pol,pos_pol_truthful],
